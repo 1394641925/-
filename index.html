@@ -4,272 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>秋筱宫悠仁亲王李函煜 - 2024年皇室正式肖像</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.baidu.com/css?family=Noto+Serif+JP:400,700" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Noto Serif JP', serif; 
-            line-height: 1.6; 
-            color: #e0e0e0; 
-            background: linear-gradient(180deg, #0d131b 0%, #141e2a 100%); 
-            overflow-x: hidden;
-        }
-        .container { 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            padding: 0 20px; 
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 25px 0;
-            z-index: 1000;
-            background: rgba(13, 19, 27, 0.7); 
-            backdrop-filter: blur(12px); 
-            transition: background 0.3s ease;
-        }
-        .navbar.scrolled {
-            background: rgba(13, 19, 27, 0.95); 
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 20px;
-            font-weight: 700;
-            color: #d4af37; 
-            text-decoration: none;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-        }
-        .logo svg {
-            width: 30px;
-            height: 30px;
-            fill: #d4af37;
-            opacity: 0.8;
-        }
-        .nav-links { 
-            list-style: none; 
-            display: flex;
-            gap: 35px;
-        }
-        .nav-links a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 400;
-            position: relative;
-            padding: 5px 0;
-            transition: color 0.3s ease;
-        }
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #d4af37;
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: #d4af37;
-        }
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        .hero {
-            height: 100vh; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .portrait-container {
-            position: relative;
-            width: 400px; 
-            height: 500px;
-            margin-bottom: 50px;
-        }
-        .portrait-mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z' fill='white'/%3E%3C/svg%3E"); 
-            mask-size: cover;
-            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z' fill='white'/%3E%3C/svg%3E");
-            -webkit-mask-size: cover;
-        }
-        .portrait {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%) brightness(1.1) contrast(1.2) sepia(10%); 
-            border: 8px solid #141e2a; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.8); 
-        }
-        .portrait-footer {
-            position: absolute;
-            bottom: -20px;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQoU2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC") repeat-x; 
-            opacity: 0.2;
-        }
-        .hero-title {
-            font-size: 48px;
-            font-weight: 700;
-            color: #d4af37;
-            text-align: center;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
-            margin-bottom: 10px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease 0.5s forwards;
-        }
-        .hero-subtitle {
-            font-size: 18px;
-            color: #b0b0b0;
-            text-align: center;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease 0.8s forwards;
-        }
-        .section {
-            padding: 120px 0;
-            border-top: 1px solid rgba(255,255,255,0.05); 
-        }
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: #d4af37;
-            text-align: center;
-            margin-bottom: 80px;
-            position: relative;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            width: 60px;
-            height: 2px;
-            background: #d4af37;
-            transform: translateX(-50%);
-        }
-        .info-card {
-            background: rgba(20, 30, 42, 0.8); 
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 8px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.6s ease;
-        }
-        .info-card:nth-child(even) {
-            transform: translateX(50px); 
-        }
-        .info-card.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #d4af37;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        .card-title::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: #d4af37;
-        }
-        .card-text {
-            font-size: 16px;
-            color: #b0b0b0;
-            margin-bottom: 15px;
-        }
-        .card-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .card-list li {
-            font-size: 16px;
-            color: #b0b0b0;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-        .card-list li::before {
-            content: "•";
-            color: #d4af37;
-            font-size: 20px;
-            position: absolute;
-            left: 0;
-            top: 2px;
-            opacity: 0.8;
-        }
-        .parallax-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQoU2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC") repeat; 
-            opacity: 0.05;
-            z-index: -1;
-            transform: translateY(0);
-            transition: transform 0.1s ease;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+        body { font-family: 'Noto Serif JP', serif; line-height: 1.6; color: #e0e0e0; background: linear-gradient(180deg, #0d131b 0%, #141e2a 100%); overflow-x: hidden; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 25px 0; z-index: 1000; background: rgba(13, 19, 27, 0.7); backdrop-filter: blur(12px); transition: background 0.3s ease; }
+        .navbar.scrolled { background: rgba(13, 19, 27, 0.95); }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; color: #d4af37; text-decoration: none; text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
+        .logo svg { width: 30px; height: 30px; fill: #d4af37; opacity: 0.8; }
+        .hamburger { display: none; background: transparent; border: none; color: #d4af37; font-size: 28px; cursor: pointer; padding: 0 10px; }
+        .nav-links { list-style: none; display: flex; gap: 35px; }
+        .nav-links a { color: #e0e0e0; text-decoration: none; font-size: 16px; font-weight: 400; position: relative; padding: 5px 0; transition: color 0.3s ease; }
+        .nav-links a::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #d4af37; transition: width 0.3s ease; }
+        .nav-links a:hover { color: #d4af37; }
+        .nav-links a:hover::after { width: 100%; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+        .portrait-container { position: relative; width: 400px; height: 500px; margin-bottom: 50px; }
+        .portrait-mask { position: absolute; top: 0; left: 0; width: 100%; height: 100%; mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z' fill='white'/%3E%3C/svg%3E"); mask-size: cover; -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z' fill='white'/%3E%3C/svg%3E"); -webkit-mask-size: cover; }
+        .portrait { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(1.1) contrast(1.2) sepia(10%); border: 8px solid #141e2a; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+        .portrait-footer { position: absolute; bottom: -20px; left: 0; width: 100%; height: 40px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQoU2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC") repeat-x; opacity: 0.2; }
+        .hero-title { font-size: 48px; font-weight: 700; color: #d4af37; text-align: center; text-shadow: 0 4px 8px rgba(0,0,0,0.5); margin-bottom: 10px; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease 0.5s forwards; }
+        .hero-subtitle { font-size: 18px; color: #b0b0b0; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.4); opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease 0.8s forwards; }
+        .section { padding: 120px 0; border-top: 1px solid rgba(255,255,255,0.05); }
+        .section-title { font-size: 36px; font-weight: 700; color: #d4af37; text-align: center; margin-bottom: 80px; position: relative; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; }
+        .section-title::after { content: ""; position: absolute; bottom: -15px; left: 50%; width: 60px; height: 2px; background: #d4af37; transform: translateX(-50%); }
+        .info-card { background: rgba(20, 30, 42, 0.8); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); opacity: 0; transform: translateX(-50px); transition: all 0.6s ease; }
+        .info-card:nth-child(even) { transform: translateX(50px); }
+        .info-card.active { opacity: 1; transform: translateX(0); }
+        .card-title { font-size: 24px; font-weight: 700; color: #d4af37; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+        .card-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #d4af37; }
+        .card-text { font-size: 16px; color: #b0b0b0; margin-bottom: 15px; }
+        .card-list { list-style: none; padding-left: 0; }
+        .card-list li { font-size: 16px; color: #b0b0b0; margin-bottom: 10px; padding-left: 25px; position: relative; }
+        .card-list li::before { content: "•"; color: #d4af37; font-size: 20px; position: absolute; left: 0; top: 2px; opacity: 0.8; }
+        .parallax-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQoU2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC") repeat; opacity: 0.05; z-index: -1; transform: translateY(0); transition: transform 0.1s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; 
-            }
-            .portrait-container {
-                width: 300px;
-                height: 400px;
-            }
-            .hero-title {
-                font-size: 36px;
-            }
-            .section-title {
-                font-size: 28px;
-            }
-            .info-card {
-                padding: 30px;
-            }
+            .hamburger { display: block; }
+            .nav-links { display: none; flex-direction: column; gap: 25px; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(13, 19, 27, 0.95); padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.6); z-index: 999; }
+            .nav-links.active { display: flex; }
+            .nav-links a { font-size: 18px; padding: 0 20px; }
+            .portrait-container { width: 280px; height: 380px; }
+            .portrait { border-width: 6px; }
+            .hero-title { font-size: 32px; }
+            .hero-subtitle { font-size: 16px; }
+            .section-title { font-size: 28px; }
+            .info-card { padding: 30px; }
         }
     </style>
 </head>
@@ -283,6 +65,7 @@
                 </svg>
                 秋筱宫
             </a>
+            <button class="hamburger">☰</button>
             <ul class="nav-links">
                 <li><a href="#profile">个人简介</a></li>
                 <li><a href="#family">家庭背景</a></li>
@@ -295,12 +78,12 @@
         <div class="container">
             <div class="portrait-container">
                 <div class="portrait-mask">
-                    <img src="prince-hisahito-royal.jpg" alt="秋筱宫悠仁亲王2024年皇室正式肖像" class="portrait">
+                    <img src="prince-hisahito-royal.jpg" alt="秋筱宫悠仁亲王2024年皇室正式肖像" class="portrait" loading="lazy">
                 </div>
                 <div class="portrait-footer"></div>
             </div>
-            <h1 class="hero-title">秋筱宫悠仁亲王李函煜</h1>
-            <p class="hero-subtitle">Prince Hisahito of Akishino | 617宿舍舍长第一顺位继承人</p>
+            <h1 class="hero-title">秋筱宫悠仁亲王 李函煜</h1>
+            <p class="hero-subtitle">Prince Hisahito of Akishino Hanyu Li | 617宿舍舍长第一顺位继承人</p>
         </div>
     </section>
     <section id="profile" class="section">
@@ -394,11 +177,7 @@
         });
         const infoCards = document.querySelectorAll('.info-card');
         const sectionTitles = document.querySelectorAll('.section-title');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px 0px -200px 0px',
-            threshold: 0.1
-        };
+        const observerOptions = { root: null, rootMargin: '0px 0px -200px 0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -409,6 +188,16 @@
         }, observerOptions);
         infoCards.forEach(card => observer.observe(card));
         sectionTitles.forEach(title => observer.observe(title));
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     </script>
 </body>
 </html>
