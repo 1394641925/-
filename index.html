@@ -3,198 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秋筱宫悠仁亲王李函煜 - 2024年皇室正式肖像</title>
-    <link href="https://fonts.baidu.com/css?family=Noto+Serif+JP:400,700" rel="stylesheet">
+    <title>秋筱宫悠仁亲王李函煜 - 青少年时期官方肖像</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Serif JP', serif; line-height: 1.6; color: #e0e0e0; background: linear-gradient(180deg, #0d131b 0%, #141e2a 100%); overflow-x: hidden; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 25px 0; z-index: 1000; background: rgba(13, 19, 27, 0.7); backdrop-filter: blur(12px); transition: background 0.3s ease; }
-        .navbar.scrolled { background: rgba(13, 19, 27, 0.95); }
-        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; color: #d4af37; text-decoration: none; text-shadow: 0 2px 4px rgba(0,0,0,0.4); }
-        .logo svg { width: 30px; height: 30px; fill: #d4af37; opacity: 0.8; }
-        .hamburger { display: none; background: transparent; border: none; color: #d4af37; font-size: 28px; cursor: pointer; padding: 0 10px; }
-        .nav-links { list-style: none; display: flex; gap: 35px; }
-        .nav-links a { color: #e0e0e0; text-decoration: none; font-size: 16px; font-weight: 400; position: relative; padding: 5px 0; transition: color 0.3s ease; }
-        .nav-links a::after { content: ""; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: #d4af37; transition: width 0.3s ease; }
-        .nav-links a:hover { color: #d4af37; }
-        .nav-links a:hover::after { width: 100%; }
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-        .portrait-container { position: relative; width: 400px; height: 500px; margin-bottom: 50px; }
-        .portrait-mask { position: absolute; top: 0; left: 0; width: 100%; height: 100%; mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z' fill='white'/%3E%3C/svg%3E"); mask-size: cover; -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z' fill='white'/%3E%3C/svg%3E"); -webkit-mask-size: cover; }
-        .portrait { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(1.1) contrast(1.2) sepia(10%); border: 8px solid #141e2a; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
-        .portrait-footer { position: absolute; bottom: -20px; left: 0; width: 100%; height: 40px; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQoU2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC") repeat-x; opacity: 0.2; }
-        .hero-title { font-size: 48px; font-weight: 700; color: #d4af37; text-align: center; text-shadow: 0 4px 8px rgba(0,0,0,0.5); margin-bottom: 10px; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease 0.5s forwards; }
-        .hero-subtitle { font-size: 18px; color: #b0b0b0; text-align: center; text-shadow: 0 2px 4px rgba(0,0,0,0.4); opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease 0.8s forwards; }
-        .section { padding: 120px 0; border-top: 1px solid rgba(255,255,255,0.05); }
-        .section-title { font-size: 36px; font-weight: 700; color: #d4af37; text-align: center; margin-bottom: 80px; position: relative; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s ease forwards; }
-        .section-title::after { content: ""; position: absolute; bottom: -15px; left: 50%; width: 60px; height: 2px; background: #d4af37; transform: translateX(-50%); }
-        .info-card { background: rgba(20, 30, 42, 0.8); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 40px; margin-bottom: 40px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); opacity: 0; transform: translateX(-50px); transition: all 0.6s ease; }
-        .info-card:nth-child(even) { transform: translateX(50px); }
-        .info-card.active { opacity: 1; transform: translateX(0); }
-        .card-title { font-size: 24px; font-weight: 700; color: #d4af37; margin-bottom: 20px; position: relative; padding-bottom: 10px; }
-        .card-title::after { content: ""; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: #d4af37; }
-        .card-text { font-size: 16px; color: #b0b0b0; margin-bottom: 15px; }
-        .card-list { list-style: none; padding-left: 0; }
-        .card-list li { font-size: 16px; color: #b0b0b0; margin-bottom: 10px; padding-left: 25px; position: relative; }
-        .card-list li::before { content: "•"; color: #d4af37; font-size: 20px; position: absolute; left: 0; top: 2px; opacity: 0.8; }
-        .parallax-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQoU2NkYGD4z8DAwMgABXAGNgGwSgwVAFbmAgXQdISfAAAAAElFTkSuQmCC") repeat; opacity: 0.05; z-index: -1; transform: translateY(0); transition: transform 0.1s ease; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        body { 
+            font-family: 'Noto Serif SC', serif; 
+            line-height: 1.8; 
+            color: #f0f0f0; 
+            background-color: #121a26; 
+            scroll-behavior: smooth; 
+        }
+        
+        /* 容器 */
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 30px; 
+        }
+        
+        /* 导航栏：固定顶部，金属质感 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 26, 38, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* 品牌LOGO（可选，增强辨识度） */
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #d4af37;
+            text-decoration: none;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* 导航链接（桌面端） */
+        .nav-links { 
+            list-style: none; 
+            display: flex;
+            gap: 30px;
+        }
+        .nav-links li { 
+            position: relative; 
+        }
+        .nav-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 400;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* 汉堡菜单（移动端） */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            background: transparent;
+            border: none;
+        }
+        .hamburger .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #f0f0f0;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        /* 汉堡菜单激活状态（变成叉号） */
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #d4af37;
+        }
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #d4af37;
+        }
+        
+        /* 移动端导航菜单（可收放） */
         @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-links { display: none; flex-direction: column; gap: 25px; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(13, 19, 27, 0.95); padding: 30px 0; box-shadow: 0 10px 20px rgba(0,0,0,0.6); z-index: 999; }
-            .nav-links.active { display: flex; }
-            .nav-links a { font-size: 18px; padding: 0 20px; }
-            .portrait-container { width: 280px; height: 380px; }
-            .portrait { border-width: 6px; }
-            .hero-title { font-size: 32px; }
-            .hero-subtitle { font-size: 16px; }
-            .section-title { font-size: 28px; }
-            .info-card { padding: 30px; }
+            .nav-links {
+                position: fixed;
+                top: 70px; /* 与导航栏高度一致 */
+                left: 0;
+                width: 100%;
+                background-color: rgba(18, 26, 38, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+                transform: translateY(-120%); /* 初始隐藏（向上移出屏幕） */
+                transition: transform 0.3s ease-in-out;
+            }
+            .nav-links.active {
+                transform: translateY(0); /* 激活时滑入屏幕 */
+            }
+            .nav-links li {
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #2d3748;
+            }
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            .nav-links a {
+                font-size: 19px;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        /* 首页头部（核心肖像区） */
+        .header {
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 80px;
+            background: linear-gradient(180deg, #121a26 0%, #1a2433 100%);
+        }
+        .portrait-wrapper {
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(45deg, #d4af37 0%, #b8860b 100%);
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            margin-bottom: 40px;
+        }
+        .portrait {
+            max-width: 350px;
+            height: auto;
+            border-radius: 8px;
+            filter: grayscale(100%) brightness(1.1) contrast(1.2);
+            border: 5px solid #121a26;
+        }
+        .header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+        }
+        .header p {
+            font-size: 20px;
+            color: #cccccc;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+        
+        /* 内容板块（保持之前的高级样式） */
+        .section {
+            padding: 120px 0;
+            border-bottom: 1px solid #2d3748;
+        }
+        .section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 70px;
+            text-align: center;
+            position: relative;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+        }
+        .section h2::after {
+            content: "";
+            width: 60px;
+            height: 4px;
+            background-color: #d4af37;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .section-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: center;
+        }
+        .info-card {
+            flex: 1 1 450px;
+            background-color: #1a2433;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #2d3748;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: #d4af37;
+        }
+        .info-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .info-card h3::after {
+            content: "";
+            width: 50px;
+            height: 3px;
+            background-color: #d4af37;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 1px;
+        }
+        .info-card p {
+            font-size: 16px;
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-card li {
+            font-size: 16px;
+            color: #cccccc;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.8;
+        }
+        .info-card li::before {
+            content: "•";
+            color: #d4af37;
+            font-size: 22px;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* 页脚 */
+        .footer {
+            padding: 80px 0;
+            background-color: #121a26;
+            text-align: center;
+            border-top: 1px solid #2d3748;
+        }
+        .footer p {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        .footer .copyright {
+            font-size: 12px;
+            color: #d4af37;
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <div class="parallax-bg"></div>
+    <!-- 导航栏（含可收放菜单） -->
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                    <path d="M50 0L60 30L90 30L65 45L75 75L50 60L25 75L35 45L10 30L40 30Z" />
-                </svg>
-                秋筱宫
-            </a>
-            <button class="hamburger">☰</button>
+            <!-- 品牌LOGO（可选，增强皇室辨识度） -->
+            <a href="#home" class="logo">秋筱宫</a>
+            
+            <!-- 导航链接 -->
             <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
                 <li><a href="#profile">个人简介</a></li>
                 <li><a href="#family">家庭背景</a></li>
                 <li><a href="#education">教育经历</a></li>
                 <li><a href="#activities">公众活动</a></li>
             </ul>
+            
+            <!-- 汉堡菜单按钮 -->
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
-    <section class="hero">
+
+    <!-- 首页头部（核心肖像区） -->
+    <header id="home" class="header">
         <div class="container">
-            <div class="portrait-container">
-                <div class="portrait-mask">
-                    <img src="prince-hisahito-royal.jpg" alt="秋筱宫悠仁亲王2024年皇室正式肖像" class="portrait" loading="lazy">
-                </div>
-                <div class="portrait-footer"></div>
+            <div class="portrait-wrapper">
+                <img src="prince-hisahito-portrait.jpg" alt="秋筱宫悠仁亲王2020-2024年青少年时期正式肖像" class="portrait">
             </div>
-            <h1 class="hero-title">秋筱宫悠仁亲王 李函煜</h1>
-            <p class="hero-subtitle">Prince Hisahito of Akishino Hanyu Li | 617宿舍舍长第一顺位继承人</p>
+            <h1>秋筱宫悠仁亲王李函煜<br>Prince Hisahito of Akishino</h1>
+            <p>2020-2024年青少年时期正式肖像 | 617舍长第一顺位继承人</p>
         </div>
-    </section>
+    </header>
+
+    <!-- 内容板块（保持之前的详细内容） -->
     <section id="profile" class="section">
         <div class="container">
-            <h2 class="section-title">个人简介</h2>
-            <div class="info-card">
-                <h3 class="card-title">基本信息</h3>
-                <p class="card-text"><strong>出生日期</strong>：2006年9月6日（处女座）</p>
-                <p class="card-text"><strong>出生地</strong>：日本东京都千代田区宫内厅医院</p>
-                <p class="card-text"><strong>皇室身份</strong>：秋筱宫家长子（父亲：秋筱宫文仁亲王；母亲：纪子妃）</p>
-                <p class="card-text"><strong>皇位继承顺位</strong>：第二顺位（仅次于父亲）</p>
-            </div>
-            <div class="info-card">
-                <h3 class="card-title">个人特质</h3>
-                <ul class="card-list">
-                    <li>性格沉稳，擅长逻辑思考与历史分析</li>
-                    <li>爱好：棒球（高中棒球部副队长）、古典音乐（钢琴十级）</li>
-                    <li>语言：日语（母语）、英语（流利）、法语（基础）</li>
-                    <li>身高：约176cm（2024年公开数据）</li>
-                </ul>
+            <h2>个人简介</h2>
+            <div class="section-content">
+                <div class="info-card">
+                    <h3>基本信息</h3>
+                    <p><strong>出生日期</strong>：2006年9月6日（处女座）</p>
+                    <p><strong>出生地</strong>：日本东京都千代田区宫内厅医院</p>
+                    <p><strong>皇室身份</strong>：秋筱宫家长子<br>（父亲：秋筱宫文仁亲王<br>母亲：纪子妃）</p>
+                    <p><strong>皇位继承顺位</strong>：第二顺位（仅次于父亲）</p>
+                </div>
+                <div class="info-card">
+                    <h3>个人特质</h3>
+                    <ul>
+                        <li>性格沉稳，擅长逻辑思考与历史分析</li>
+                        <li>爱好：棒球（担任高中棒球部副队长）、古典音乐（擅长钢琴）</li>
+                        <li>语言：日语（母语）、英语（流利）、法语（基础）</li>
+                        <li>身高：约176cm（2024年公开数据）</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- 家庭背景板块 -->
     <section id="family" class="section">
         <div class="container">
-            <h2 class="section-title">家庭背景</h2>
-            <div class="info-card">
-                <h3 class="card-title">核心家庭成员</h3>
-                <ul class="card-list">
-                    <li><strong>父亲</strong>：秋筱宫文仁亲王（1965年出生，天皇德仁胞弟，皇位第一顺位继承人）</li>
-                    <li><strong>母亲</strong>：纪子妃（1966年出生，东京书香门第，儿童教育公益倡导者）</li>
-                    <li><strong>姐姐</strong>：真子内亲王（1991年出生，2021年与小室圭结婚，脱离皇室）</li>
-                    <li><strong>姐姐</strong>：佳子内亲王（1994年出生，皇室成员，文化遗产保护推动者）</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3 class="card-title">祖辈关系</h3>
-                <p class="card-text"><strong>祖父</strong>：明仁天皇（上皇，1989-2019年在位，推动皇室现代化改革）</p>
-                <p class="card-text"><strong>祖母</strong>：美智子皇后（上皇后，企业家家庭出身，倡导皇室平民化）</p>
+            <h2>家庭背景</h2>
+            <div class="section-content">
+                <div class="info-card">
+                    <h3>核心家庭成员</h3>
+                    <ul>
+                        <li><strong>父亲</strong>：秋筱宫文仁亲王（1965年出生，天皇德仁胞弟，皇位第一顺位继承人）</li>
+                        <li><strong>母亲</strong>：纪子妃（1966年出生，出身东京书香门第，专注于儿童教育公益）</li>
+                        <li><strong>姐姐</strong>：真子内亲王（1991年出生，2021年与小室圭结婚，脱离皇室）</li>
+                        <li><strong>姐姐</strong>：佳子内亲王（1994年出生，皇室成员，致力于文化遗产保护）</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>祖辈关系</h3>
+                    <p><strong>祖父</strong>：明仁天皇（上皇，1989-2019年在位，推动皇室现代化改革）</p>
+                    <p><strong>祖母</strong>：美智子皇后（上皇后，出身企业家家庭，倡导皇室平民化形象）</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- 教育经历板块 -->
     <section id="education" class="section">
         <div class="container">
-            <h2 class="section-title">教育经历</h2>
-            <div class="info-card">
-                <h3 class="card-title">学业历程</h3>
-                <ul class="card-list">
-                    <li><strong>2013-2020年</strong>：学习院初等科（皇室传统名校，东京丰岛区）</li>
-                    <li><strong>2020-2023年</strong>：学习院中等科（文科与社会科学主攻，年级前5%）</li>
-                    <li><strong>2023年至今</strong>：学习院高等科（高中阶段，专注历史、政治与国际事务）</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3 class="card-title">在校表现</h3>
-                <ul class="card-list">
-                    <li>2018、2021年获得「校长奖」（学业与品德双优）</li>
-                    <li>2022-2023年担任棒球部副队长，带领球队获东京都高中联赛第三名</li>
-                    <li>2024年参与「皇室与青少年社会角色」课题研究，成果发表于《学习院学报》</li>
-                </ul>
+            <h2>教育经历</h2>
+            <div class="section-content">
+                <div class="info-card">
+                    <h3>学业历程</h3>
+                    <ul>
+                        <li><strong>2013-2020年</strong>：学习院初等科（皇室传统名校，位于东京丰岛区）</li>
+                        <li><strong>2020-2023年</strong>：学习院中等科（主攻文科与社会科学，成绩位列年级前5%）</li>
+                        <li><strong>2023年至今</strong>：学习院高等科（高中阶段，专注于历史、政治与国际事务）</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>在校表现</h3>
+                    <ul>
+                        <li>多次获得“校长奖”（2018、2021年），表彰其学业与品德</li>
+                        <li>2022-2023年担任棒球部副队长，带领球队获得东京都高中联赛第三名</li>
+                        <li>2024年参与“皇室与青少年社会角色”课题研究，成果发表于《学习院学报》</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- 公众活动板块 -->
     <section id="activities" class="section">
         <div class="container">
-            <h2 class="section-title">公众活动</h2>
-            <div class="info-card">
-                <h3 class="card-title">重要活动记录</h3>
-                <ul class="card-list">
-                    <li><strong>2020年1月</strong>：首次出席新年朝贺仪式，与天皇德仁共同接见民众</li>
-                    <li><strong>2022年4月</strong>：主持秋筱宫家传统「御所祭」，完成完整祭祀流程</li>
-                    <li><strong>2023年10月</strong>：随父母访问东北灾区（宫城县），慰问幸存者并捐赠个人储蓄</li>
-                    <li><strong>2024年3月</strong>：参加皇室「春季植树仪式」，倡导「青少年与环境共成长」</li>
-                </ul>
-            </div>
-            <div class="info-card">
-                <h3 class="card-title">公众形象</h3>
-                <p class="card-text">悠仁亲王以「沉稳、亲民、有责任感」的形象深受民众喜爱，尤其在青少年群体中具有高号召力。他强调「皇室应贴近社会，为青少年树立积极榜样」，积极参与儿童教育、灾区重建等公益活动。</p>
-                <p class="card-text">2023年日本舆论调查显示，悠仁亲王支持率达78%，位列皇室成员前茅。</p>
+            <h2>公众活动</h2>
+            <div class="section-content">
+                <div class="info-card">
+                    <h3>重要活动记录</h3>
+                    <ul>
+                        <li><strong>2020年1月</strong>：首次出席新年朝贺仪式，与天皇德仁共同接见民众，展现皇室传承</li>
+                        <li><strong>2022年4月</strong>：主持秋筱宫家传统“御所祭”，首次代表家庭完成完整祭祀流程</li>
+                        <li><strong>2023年10月</strong>：随父母访问东北灾区（宫城县），慰问地震幸存者，捐赠个人储蓄支持重建</li>
+                        <li><strong>2024年3月</strong>：参加皇室“春季植树仪式”，倡导“青少年与环境共成长”，种植樱花树100株</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>公众形象</h3>
+                    <p>悠仁亲王以“沉稳、亲民、有责任感”的形象深受日本民众喜爱，尤其在青少年群体中具有较高号召力。他多次强调“皇室应贴近社会，为青少年树立积极榜样”，并积极参与儿童教育、灾区重建等公益活动。</p>
+                    <p>2023年，日本舆论调查显示，悠仁亲王的支持率达78%，位列皇室成员前茅。</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 秋筱宫家官方信息发布平台</p>
+            <p>本页面仅展示皇室成员公开信息，不涉及政治立场。</p>
+            <p class="copyright">Designed with dignity for the Imperial House of Japan</p>
+        </div>
+    </footer>
+
+    <!-- 菜单交互JS（可收放功能） -->
     <script>
-        window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-        window.addEventListener('scroll', () => {
-            const parallaxBg = document.querySelector('.parallax-bg');
-            parallaxBg.style.transform = `translateY(${window.scrollY * 0.1}px)`;
-        });
-        const infoCards = document.querySelectorAll('.info-card');
-        const sectionTitles = document.querySelectorAll('.section-title');
-        const observerOptions = { root: null, rootMargin: '0px 0px -200px 0px', threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        infoCards.forEach(card => observer.observe(card));
-        sectionTitles.forEach(title => observer.observe(title));
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
+
         hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
-        navLinks.querySelectorAll('a').forEach(link => {
+
+        // 点击链接后关闭菜单（移动端优化）
+        document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
         });
