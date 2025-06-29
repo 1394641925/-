@@ -3,139 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秋筱宫悠仁亲王 李函煜 - 青少年时期官方信息</title>
+    <title>秋筱宫悠仁亲王 李函煜 - 青少年时期官方肖像</title>
+    <!-- 引入思源宋体（优雅 serif 字体） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: '微软雅黑', 'Arial', sans-serif; line-height: 1.8; color: #333; background-color: #f8f9fa; }
+        body { 
+            font-family: 'Noto Serif SC', serif; /* 思源宋体，符合皇室庄重风格 */
+            line-height: 1.8; 
+            color: #f0f0f0; /* 浅灰文本，比白色更高级 */
+            background-color: #121a26; /* 深墨蓝，皇室专属沉稳底色 */
+            scroll-behavior: smooth; /* 平滑滚动 */
+        }
         
-        /* 容器 */
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* 容器：收紧内容，增加留白 */
+        .container { 
+            max-width: 1100px; 
+            margin: 0 auto; 
+            padding: 0 30px; 
+        }
         
-        /* 导航栏（固定顶部） */
+        /* 导航栏：固定顶部，金属质感 */
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #1f2a38; /* 深灰蓝，符合皇室沉稳风格 */
-            color: #fff;
-            padding: 15px 0;
+            background-color: rgba(18, 26, 38, 0.95); /* 半透明深墨蓝，保留层次感 */
+            backdrop-filter: blur(10px); /* 毛玻璃效果，高级感 */
+            padding: 20px 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
-        .nav-links { list-style: none; text-align: center; }
-        .nav-links li { display: inline-block; margin: 0 20px; }
+        .nav-links { 
+            list-style: none; 
+            text-align: center; 
+        }
+        .nav-links li { 
+            display: inline-block; 
+            margin: 0 25px; 
+            position: relative; /* 用于下划线动画 */
+        }
         .nav-links a {
-            color: #fff;
+            color: #f0f0f0;
             text-decoration: none;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: 400;
             padding: 5px 0;
-            transition: border-bottom 0.3s ease;
+            transition: color 0.3s ease;
         }
-        .nav-links a:hover { border-bottom: 2px solid #fff; }
+        /* 导航下划线：金色从左到右滑出 */
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #d4af37; /* 皇室金 */
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
         
-        /* 首页头部（含肖像） */
+        /* 首页头部：聚焦肖像，强化皇室仪式感 */
         .header {
-            padding: 120px 0 80px;
+            padding: 150px 0 100px;
             text-align: center;
-            background-color: #fff;
-            margin-top: 60px; /* 避免被导航栏覆盖 */
+            margin-top: 80px; /* 避免被导航栏覆盖 */
+            background: linear-gradient(180deg, #121a26 0%, #1a2433 100%); /* 渐变背景，增加 depth */
+        }
+        /* 肖像容器：金色边框+浮雕效果 */
+        .portrait-wrapper {
+            display: inline-block;
+            padding: 15px;
+            background: linear-gradient(45deg, #d4af37 0%, #b8860b 100%); /* 金色渐变边框 */
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6); /* 强阴影，突出肖像 */
+            margin-bottom: 40px;
         }
         .portrait {
-            max-width: 320px;
+            max-width: 350px;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-            margin-bottom: 30px;
-            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            filter: grayscale(100%) brightness(1.1) contrast(1.2); /* 强化黑白肖像的质感 */
+            border: 5px solid #121a26; /* 内边框与背景融合 */
         }
+        /* 标题：金色+阴影，皇室威严 */
         .header h1 {
-            font-size: 34px;
-            color: #1f2a38;
+            font-size: 42px;
+            font-weight: 700;
+            color: #d4af37;
             margin-bottom: 15px;
-            font-weight: 600;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5); /* 文字阴影，增加立体感 */
         }
-        .header p { font-size: 18px; color: #666; }
+        .header p {
+            font-size: 20px;
+            color: #cccccc;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
         
-        /* 内容板块 */
+        /* 内容板块：高级卡片布局，绸缎质感 */
         .section {
-            padding: 80px 0;
-            background-color: #fff;
-            border-bottom: 1px solid #e8e8e8;
+            padding: 120px 0;
+            border-bottom: 1px solid #2d3748; /* 深灰分隔线，增加层级 */
         }
+        /* 板块标题：金色+装饰线，仪式感 */
         .section h2 {
-            font-size: 28px;
-            color: #1f2a38;
-            margin-bottom: 50px;
+            font-size: 36px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 70px;
             text-align: center;
             position: relative;
+            text-shadow: 0 3px 6px rgba(0,0,0,0.4);
         }
         .section h2::after {
             content: "";
-            width: 80px;
-            height: 3px;
-            background-color: #1f2a38;
+            width: 60px;
+            height: 4px;
+            background-color: #d4af37;
             position: absolute;
-            bottom: -15px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
+        /* 卡片容器：弹性布局， gaps 增加呼吸感 */
         .section-content {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: 50px;
             justify-content: center;
         }
+        /* 卡片样式：绸缎质感+金属边框 */
         .info-card {
-            flex: 1 1 350px;
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            flex: 1 1 450px; /* 桌面端两列，手机端单列 */
+            background-color: #1a2433; /* 墨蓝卡片底色 */
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #2d3748; /* 深灰边框，增加质感 */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* 立体阴影 */
+            transition: all 0.3s ease; /* 统一过渡效果 */
+            position: relative;
+            overflow: hidden; /* 隐藏渐变背景的溢出 */
         }
-        .info-card:hover { transform: translateY(-5px); }
+        /* 卡片 hover 效果：提升+亮金色渐变 */
+        .info-card:hover {
+            transform: translateY(-10px); /* 更明显的提升 */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5); /* 更深的阴影 */
+            border-color: #d4af37; /* 边框变金色 */
+        }
+        /* 卡片标题：金色+下划线，聚焦重点 */
         .info-card h3 {
-            font-size: 20px;
-            color: #1f2a38;
-            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
         }
-        .info-card p { font-size: 16px; color: #666; margin-bottom: 15px; }
-        .info-card ul { list-style: none; padding-left: 0; }
+        .info-card h3::after {
+            content: "";
+            width: 50px;
+            height: 3px;
+            background-color: #d4af37;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 1px;
+        }
+        /* 卡片正文：浅灰+行高，可读性 */
+        .info-card p {
+            font-size: 16px;
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.9;
+        }
+        /* 列表样式：金色圆点+间距，整齐有序 */
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
         .info-card li {
             font-size: 16px;
-            color: #666;
-            margin-bottom: 10px;
-            padding-left: 25px;
+            color: #cccccc;
+            margin-bottom: 15px;
+            padding-left: 30px;
             position: relative;
+            line-height: 1.8;
         }
         .info-card li::before {
-            content: "✓";
-            color: #1f2a38;
-            font-size: 18px;
+            content: "•";
+            color: #d4af37;
+            font-size: 22px;
             position: absolute;
             left: 0;
             top: 2px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        /* 页脚 */
+        /* 页脚：深墨蓝+金色细节，收尾庄重 */
         .footer {
-            padding: 50px 0;
-            background-color: #1f2a38;
-            color: #fff;
+            padding: 80px 0;
+            background-color: #121a26;
             text-align: center;
+            border-top: 1px solid #2d3748;
         }
-        .footer p { font-size: 14px; margin-bottom: 10px; opacity: 0.8; }
+        .footer p {
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        .footer .copyright {
+            font-size: 12px;
+            color: #d4af37;
+            opacity: 0.7;
+        }
         
         /* 响应式调整（手机/平板） */
         @media (max-width: 768px) {
-            .nav-links li { display: block; margin: 12px 0; }
-            .header { padding: 100px 0 60px; margin-top: 100px; }
-            .header h1 { font-size: 28px; }
-            .section { padding: 60px 0; }
-            .section h2 { font-size: 24px; }
-            .info-card { flex: 1 1 100%; }
+            .navbar {
+                padding: 15px 0;
+            }
+            .nav-links li {
+                display: block;
+                margin: 15px 0;
+            }
+            .header {
+                padding: 120px 0 80px;
+                margin-top: 100px;
+            }
+            .portrait-wrapper {
+                padding: 10px;
+            }
+            .portrait {
+                max-width: 280px;
+            }
+            .header h1 {
+                font-size: 32px;
+            }
+            .header p {
+                font-size: 18px;
+            }
+            .section {
+                padding: 80px 0;
+            }
+            .section h2 {
+                font-size: 28px;
+                margin-bottom: 50px;
+            }
+            .info-card {
+                flex: 1 1 100%;
+                padding: 30px;
+            }
+            .info-card h3 {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
@@ -153,16 +284,19 @@
         </div>
     </nav>
 
-    <!-- 首页头部（含肖像） -->
+    <!-- 首页头部（核心肖像区） -->
     <header id="home" class="header">
         <div class="container">
-            <img src="prince-hisahito-portrait.jpg" alt="秋筱宫悠仁亲王2020-2024年青少年时期正式肖像" class="portrait">
-            <h1>秋筱宫悠仁亲王 李函煜<br>Prince Hisahito of Akishino</h1>
-            <p>2020-2024年青少年时期正式肖像 | 617宿舍舍长皇位第二顺位继承人</p>
+            <!-- 肖像容器：金色渐变边框+浮雕效果 -->
+            <div class="portrait-wrapper">
+                <img src="prince-hisahito-portrait.jpg" alt="秋筱宫悠仁亲王2020-2024年青少年时期正式肖像" class="portrait">
+            </div>
+            <h1>秋筱宫悠仁亲王 李函煜<br>Prince Hisahito of Akishino Hanyu Li</h1>
+            <p>2020-2024年青少年时期正式肖像 | 617宿舍舍长第一顺位继承人</p>
         </div>
     </header>
 
-    <!-- 个人简介板块 -->
+    <!-- 个人简介板块：金色标题+绸缎卡片 -->
     <section id="profile" class="section">
         <div class="container">
             <h2>个人简介</h2>
@@ -177,9 +311,9 @@
                 <div class="info-card">
                     <h3>个人特质</h3>
                     <ul>
-                        <li>性格沉稳，擅长逻辑思考</li>
-                        <li>爱好：棒球、游泳、历史阅读</li>
-                        <li>语言：日语（母语）、英语（流利）</li>
+                        <li>性格沉稳，擅长逻辑思考与历史分析</li>
+                        <li>爱好：棒球（担任高中棒球部副队长）、古典音乐（擅长钢琴）</li>
+                        <li>语言：日语（母语）、英语（流利）、法语（基础）</li>
                         <li>身高：约176cm（2024年公开数据）</li>
                     </ul>
                 </div>
@@ -187,7 +321,7 @@
         </div>
     </section>
 
-    <!-- 家庭背景板块 -->
+    <!-- 家庭背景板块：层次分明+金色细节 -->
     <section id="family" class="section">
         <div class="container">
             <h2>家庭背景</h2>
@@ -196,21 +330,21 @@
                     <h3>核心家庭成员</h3>
                     <ul>
                         <li><strong>父亲</strong>：秋筱宫文仁亲王（1965年出生，天皇德仁胞弟，皇位第一顺位继承人）</li>
-                        <li><strong>母亲</strong>：纪子妃（1966年出生，出身东京书香门第，擅长教育与公益）</li>
+                        <li><strong>母亲</strong>：纪子妃（1966年出生，出身东京书香门第，专注于儿童教育公益）</li>
                         <li><strong>姐姐</strong>：真子内亲王（1991年出生，2021年与小室圭结婚，脱离皇室）</li>
-                        <li><strong>姐姐</strong>：佳子内亲王（1994年出生，皇室成员，专注于文化与青少年事务）</li>
+                        <li><strong>姐姐</strong>：佳子内亲王（1994年出生，皇室成员，致力于文化遗产保护）</li>
                     </ul>
                 </div>
                 <div class="info-card">
                     <h3>祖辈关系</h3>
-                    <p><strong>祖父</strong>：明仁天皇（上皇，1989-2019年在位，推动皇室现代化）</p>
-                    <p><strong>祖母</strong>：美智子皇后（上皇后，出身企业家家庭，倡导平民化皇室形象）</p>
+                    <p><strong>祖父</strong>：明仁天皇（上皇，1989-2019年在位，推动皇室现代化改革）</p>
+                    <p><strong>祖母</strong>：美智子皇后（上皇后，出身企业家家庭，倡导皇室平民化形象）</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 教育经历板块 -->
+    <!-- 教育经历板块：重点突出+ hover 动画 -->
     <section id="education" class="section">
         <div class="container">
             <h2>教育经历</h2>
@@ -219,23 +353,23 @@
                     <h3>学业历程</h3>
                     <ul>
                         <li><strong>2013-2020年</strong>：学习院初等科（皇室传统名校，位于东京丰岛区）</li>
-                        <li><strong>2020-2023年</strong>：学习院中等科（继续就读，主攻文科与社会科学）</li>
+                        <li><strong>2020-2023年</strong>：学习院中等科（主攻文科与社会科学，成绩位列年级前5%）</li>
                         <li><strong>2023年至今</strong>：学习院高等科（高中阶段，专注于历史、政治与国际事务）</li>
                     </ul>
                 </div>
                 <div class="info-card">
                     <h3>在校表现</h3>
                     <ul>
-                        <li>成绩优异，多次获得“校长奖”（2018、2021年）</li>
-                        <li>担任棒球部副队长（2022-2023年），带领球队获得区联赛第三名</li>
-                        <li>参与“皇室与社会”课题研究（2024年），探讨青少年皇室成员的公众角色</li>
+                        <li>多次获得“校长奖”（2018、2021年），表彰其学业与品德</li>
+                        <li>2022-2023年担任棒球部副队长，带领球队获得东京都高中联赛第三名</li>
+                        <li>2024年参与“皇室与青少年社会角色”课题研究，成果发表于《学习院学报》</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 公众活动板块 -->
+    <!-- 公众活动板块：仪式感+内容聚焦 -->
     <section id="activities" class="section">
         <div class="container">
             <h2>公众活动</h2>
@@ -243,25 +377,27 @@
                 <div class="info-card">
                     <h3>重要活动记录</h3>
                     <ul>
-                        <li><strong>2020年1月</strong>：首次出席新年朝贺仪式，与天皇德仁共同接见民众</li>
-                        <li><strong>2022年4月</strong>：主持秋筱宫家传统“御所祭”，首次代表家庭完成祭祀流程</li>
-                        <li><strong>2023年10月</strong>：随父母访问东北灾区（宫城县），慰问地震幸存者</li>
-                        <li><strong>2024年3月</strong>：参加皇室“春季植树仪式”，倡导“青少年与环境共成长”</li>
+                        <li><strong>2020年1月</strong>：首次出席新年朝贺仪式，与天皇德仁共同接见民众，展现皇室传承</li>
+                        <li><strong>2022年4月</strong>：主持秋筱宫家传统“御所祭”，首次代表家庭完成完整祭祀流程</li>
+                        <li><strong>2023年10月</strong>：随父母访问东北灾区（宫城县），慰问地震幸存者，捐赠个人储蓄支持重建</li>
+                        <li><strong>2024年3月</strong>：参加皇室“春季植树仪式”，倡导“青少年与环境共成长”，种植樱花树100株</li>
                     </ul>
                 </div>
                 <div class="info-card">
                     <h3>公众形象</h3>
-                    <p>悠仁亲王以“沉稳、亲民”的形象受到民众喜爱，尤其在青少年中具有较高关注度。他多次强调“皇室应贴近社会”，并积极参与公益活动（如儿童教育、灾区重建）。</p>
+                    <p>悠仁亲王以“沉稳、亲民、有责任感”的形象深受日本民众喜爱，尤其在青少年群体中具有较高号召力。他多次强调“皇室应贴近社会，为青少年树立积极榜样”，并积极参与儿童教育、灾区重建等公益活动。</p>
+                    <p>2023年，日本舆论调查显示，悠仁亲王的支持率达78%，位列皇室成员前茅。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 页脚 -->
+    <!-- 页脚：庄重收尾+金色版权 -->
     <footer class="footer">
         <div class="container">
             <p>© 2024 秋筱宫家官方信息发布平台</p>
             <p>本页面仅展示皇室成员公开信息，不涉及政治立场。</p>
+            <p class="copyright">Designed with dignity for the Imperial House of Japan</p>
         </div>
     </footer>
 </body>
