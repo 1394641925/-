@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秋筱宫悠仁亲王 李函煜 - 青少年时期官方肖像</title>
-    <!-- 引入思源宋体（优雅 serif 字体） -->
+    <title>秋筱宫悠仁亲王李函煜 - 青少年时期官方肖像</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* 基础重置 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Noto Serif SC', serif; /* 思源宋体，符合皇室庄重风格 */
+            font-family: 'Noto Serif SC', serif; 
             line-height: 1.8; 
-            color: #f0f0f0; /* 浅灰文本，比白色更高级 */
-            background-color: #121a26; /* 深墨蓝，皇室专属沉稳底色 */
-            scroll-behavior: smooth; /* 平滑滚动 */
+            color: #f0f0f0; 
+            background-color: #121a26; 
+            scroll-behavior: smooth; 
         }
         
-        /* 容器：收紧内容，增加留白 */
+        /* 容器 */
         .container { 
             max-width: 1100px; 
             margin: 0 auto; 
@@ -30,20 +29,35 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(18, 26, 38, 0.95); /* 半透明深墨蓝，保留层次感 */
-            backdrop-filter: blur(10px); /* 毛玻璃效果，高级感 */
+            background-color: rgba(18, 26, 38, 0.95);
+            backdrop-filter: blur(10px);
             padding: 20px 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* 品牌LOGO（可选，增强辨识度） */
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #d4af37;
+            text-decoration: none;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* 导航链接（桌面端） */
         .nav-links { 
             list-style: none; 
-            text-align: center; 
+            display: flex;
+            gap: 30px;
         }
         .nav-links li { 
-            display: inline-block; 
-            margin: 0 25px; 
-            position: relative; /* 用于下划线动画 */
+            position: relative; 
         }
         .nav-links a {
             color: #f0f0f0;
@@ -53,7 +67,6 @@
             padding: 5px 0;
             transition: color 0.3s ease;
         }
-        /* 导航下划线：金色从左到右滑出 */
         .nav-links a::after {
             content: "";
             position: absolute;
@@ -61,7 +74,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: #d4af37; /* 皇室金 */
+            background-color: #d4af37;
             transition: width 0.3s ease;
         }
         .nav-links a:hover {
@@ -71,36 +84,99 @@
             width: 100%;
         }
         
-        /* 首页头部：聚焦肖像，强化皇室仪式感 */
+        /* 汉堡菜单（移动端） */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            background: transparent;
+            border: none;
+        }
+        .hamburger .bar {
+            display: block;
+            width: 28px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: #f0f0f0;
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+        /* 汉堡菜单激活状态（变成叉号） */
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+            background-color: #d4af37;
+        }
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+            background-color: #d4af37;
+        }
+        
+        /* 移动端导航菜单（可收放） */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px; /* 与导航栏高度一致 */
+                left: 0;
+                width: 100%;
+                background-color: rgba(18, 26, 38, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+                transform: translateY(-120%); /* 初始隐藏（向上移出屏幕） */
+                transition: transform 0.3s ease-in-out;
+            }
+            .nav-links.active {
+                transform: translateY(0); /* 激活时滑入屏幕 */
+            }
+            .nav-links li {
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid #2d3748;
+            }
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+            .nav-links a {
+                font-size: 19px;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+        
+        /* 首页头部（核心肖像区） */
         .header {
             padding: 150px 0 100px;
             text-align: center;
-            margin-top: 80px; /* 避免被导航栏覆盖 */
-            background: linear-gradient(180deg, #121a26 0%, #1a2433 100%); /* 渐变背景，增加 depth */
+            margin-top: 80px;
+            background: linear-gradient(180deg, #121a26 0%, #1a2433 100%);
         }
-        /* 肖像容器：金色边框+浮雕效果 */
         .portrait-wrapper {
             display: inline-block;
             padding: 15px;
-            background: linear-gradient(45deg, #d4af37 0%, #b8860b 100%); /* 金色渐变边框 */
+            background: linear-gradient(45deg, #d4af37 0%, #b8860b 100%);
             border-radius: 12px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.6); /* 强阴影，突出肖像 */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
             margin-bottom: 40px;
         }
         .portrait {
             max-width: 350px;
             height: auto;
             border-radius: 8px;
-            filter: grayscale(100%) brightness(1.1) contrast(1.2); /* 强化黑白肖像的质感 */
-            border: 5px solid #121a26; /* 内边框与背景融合 */
+            filter: grayscale(100%) brightness(1.1) contrast(1.2);
+            border: 5px solid #121a26;
         }
-        /* 标题：金色+阴影，皇室威严 */
         .header h1 {
             font-size: 42px;
             font-weight: 700;
             color: #d4af37;
             margin-bottom: 15px;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.5); /* 文字阴影，增加立体感 */
+            text-shadow: 0 4px 8px rgba(0,0,0,0.5);
         }
         .header p {
             font-size: 20px;
@@ -108,12 +184,11 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.4);
         }
         
-        /* 内容板块：高级卡片布局，绸缎质感 */
+        /* 内容板块（保持之前的高级样式） */
         .section {
             padding: 120px 0;
-            border-bottom: 1px solid #2d3748; /* 深灰分隔线，增加层级 */
+            border-bottom: 1px solid #2d3748;
         }
-        /* 板块标题：金色+装饰线，仪式感 */
         .section h2 {
             font-size: 36px;
             font-weight: 700;
@@ -135,32 +210,28 @@
             border-radius: 2px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        /* 卡片容器：弹性布局， gaps 增加呼吸感 */
         .section-content {
             display: flex;
             flex-wrap: wrap;
             gap: 50px;
             justify-content: center;
         }
-        /* 卡片样式：绸缎质感+金属边框 */
         .info-card {
-            flex: 1 1 450px; /* 桌面端两列，手机端单列 */
-            background-color: #1a2433; /* 墨蓝卡片底色 */
+            flex: 1 1 450px;
+            background-color: #1a2433;
             padding: 40px;
             border-radius: 12px;
-            border: 1px solid #2d3748; /* 深灰边框，增加质感 */
-            box-shadow: 0 8px 16px rgba(0,0,0,0.4); /* 立体阴影 */
-            transition: all 0.3s ease; /* 统一过渡效果 */
+            border: 1px solid #2d3748;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
             position: relative;
-            overflow: hidden; /* 隐藏渐变背景的溢出 */
+            overflow: hidden;
         }
-        /* 卡片 hover 效果：提升+亮金色渐变 */
         .info-card:hover {
-            transform: translateY(-10px); /* 更明显的提升 */
-            box-shadow: 0 15px 30px rgba(0,0,0,0.5); /* 更深的阴影 */
-            border-color: #d4af37; /* 边框变金色 */
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: #d4af37;
         }
-        /* 卡片标题：金色+下划线，聚焦重点 */
         .info-card h3 {
             font-size: 24px;
             font-weight: 700;
@@ -179,14 +250,12 @@
             left: 0;
             border-radius: 1px;
         }
-        /* 卡片正文：浅灰+行高，可读性 */
         .info-card p {
             font-size: 16px;
             color: #cccccc;
             margin-bottom: 20px;
             line-height: 1.9;
         }
-        /* 列表样式：金色圆点+间距，整齐有序 */
         .info-card ul {
             list-style: none;
             padding-left: 0;
@@ -209,7 +278,7 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
-        /* 页脚：深墨蓝+金色细节，收尾庄重 */
+        /* 页脚 */
         .footer {
             padding: 80px 0;
             background-color: #121a26;
@@ -227,53 +296,16 @@
             color: #d4af37;
             opacity: 0.7;
         }
-        
-        /* 响应式调整（手机/平板） */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 15px 0;
-            }
-            .nav-links li {
-                display: block;
-                margin: 15px 0;
-            }
-            .header {
-                padding: 120px 0 80px;
-                margin-top: 100px;
-            }
-            .portrait-wrapper {
-                padding: 10px;
-            }
-            .portrait {
-                max-width: 280px;
-            }
-            .header h1 {
-                font-size: 32px;
-            }
-            .header p {
-                font-size: 18px;
-            }
-            .section {
-                padding: 80px 0;
-            }
-            .section h2 {
-                font-size: 28px;
-                margin-bottom: 50px;
-            }
-            .info-card {
-                flex: 1 1 100%;
-                padding: 30px;
-            }
-            .info-card h3 {
-                font-size: 22px;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏（含可收放菜单） -->
     <nav class="navbar">
         <div class="container">
+            <!-- 品牌LOGO（可选，增强皇室辨识度） -->
+            <a href="#home" class="logo">秋筱宫</a>
+            
+            <!-- 导航链接 -->
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#profile">个人简介</a></li>
@@ -281,22 +313,28 @@
                 <li><a href="#education">教育经历</a></li>
                 <li><a href="#activities">公众活动</a></li>
             </ul>
+            
+            <!-- 汉堡菜单按钮 -->
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
     <!-- 首页头部（核心肖像区） -->
     <header id="home" class="header">
         <div class="container">
-            <!-- 肖像容器：金色渐变边框+浮雕效果 -->
             <div class="portrait-wrapper">
-                <img src="prince-hisahito-portrait.jpg" alt="秋筱宫悠仁亲王2020-2024年青少年时期正式肖像" class="portrait">
+                <img src="prince-hisahito-portrait.jpg" alt="秋筱宫悠仁亲王李函煜2020-2024年青少年时期正式肖像" class="portrait">
             </div>
             <h1>秋筱宫悠仁亲王 李函煜<br>Prince Hisahito of Akishino Hanyu Li</h1>
             <p>2020-2024年青少年时期正式肖像 | 617宿舍舍长第一顺位继承人</p>
         </div>
     </header>
 
-    <!-- 个人简介板块：金色标题+绸缎卡片 -->
+    <!-- 内容板块（保持之前的详细内容） -->
     <section id="profile" class="section">
         <div class="container">
             <h2>个人简介</h2>
@@ -321,7 +359,7 @@
         </div>
     </section>
 
-    <!-- 家庭背景板块：层次分明+金色细节 -->
+    <!-- 家庭背景板块 -->
     <section id="family" class="section">
         <div class="container">
             <h2>家庭背景</h2>
@@ -344,7 +382,7 @@
         </div>
     </section>
 
-    <!-- 教育经历板块：重点突出+ hover 动画 -->
+    <!-- 教育经历板块 -->
     <section id="education" class="section">
         <div class="container">
             <h2>教育经历</h2>
@@ -369,7 +407,7 @@
         </div>
     </section>
 
-    <!-- 公众活动板块：仪式感+内容聚焦 -->
+    <!-- 公众活动板块 -->
     <section id="activities" class="section">
         <div class="container">
             <h2>公众活动</h2>
@@ -392,7 +430,7 @@
         </div>
     </section>
 
-    <!-- 页脚：庄重收尾+金色版权 -->
+    <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
             <p>© 2024 秋筱宫家官方信息发布平台</p>
@@ -400,5 +438,24 @@
             <p class="copyright">Designed with dignity for the Imperial House of Japan</p>
         </div>
     </footer>
+
+    <!-- 菜单交互JS（可收放功能） -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // 点击链接后关闭菜单（移动端优化）
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
